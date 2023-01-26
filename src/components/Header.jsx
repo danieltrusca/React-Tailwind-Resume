@@ -47,7 +47,22 @@ const Header = () => {
             } flex flex-col justify-center items-center bg-accent fixed top-0 text-white text-xl capitalize w-80 h-full gap-y-8 duration-200 transition-all`}
           >
             {nav.map((item, index) => {
-              return <li key={index} className="cursor-pointer">{item.name}</li>;
+              return (
+                <li key={index} className="cursor-pointer">
+                  <Link
+                    to={item.name}
+                    onClick={() => setShowNav(false)}
+                    className="transition-all hover:border-b-2"
+                    activeClass="active"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              );
             })}
           </ul>
 
